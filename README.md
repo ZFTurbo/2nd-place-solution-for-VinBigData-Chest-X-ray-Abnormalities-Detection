@@ -11,7 +11,7 @@ You can use only inference or train models from scratch.
 
 ```
 cd part_zfturbo
-pip install requirements.txt
+pip install -r requirements.txt
 sh ./preproc.sh
 sh ./inference.sh
 
@@ -28,7 +28,7 @@ sh ./final_ensemble.sh
 
 ```
 cd part_zfturbo
-pip install requirements.txt
+pip install -r requirements.txt
 sh ./preproc.sh
 sh ./train.sh
 sh ./inference.sh
