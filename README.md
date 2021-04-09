@@ -16,6 +16,9 @@ sh ./preproc.sh
 sh ./inference.sh
 
 cd part_ivan
+sh ./setup.sh
+sh ./preproc.sh
+sh ./inference.sh
 ...
 
 cd part_sergey
@@ -34,6 +37,10 @@ sh ./train.sh
 sh ./inference.sh
 
 cd part_ivan
+sh ./setup.sh
+sh ./preproc_train.sh
+sh ./train.sh
+sh ./inference.sh
 ...
 
 cd part_sergey
