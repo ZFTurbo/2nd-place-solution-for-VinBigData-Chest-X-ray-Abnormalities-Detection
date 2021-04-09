@@ -16,6 +16,9 @@ sh ./preproc.sh
 sh ./inference.sh
 
 cd part_ivan
+sh ./setup.sh
+sh ./preproc.sh
+sh ./inference.sh
 ...
 
 cd part_sergey
