@@ -1,0 +1,48 @@
+--img 640 --batch 40 --epochs 5 --data data/coco128.yaml --device 0,1,2,3 --project ../../models/yolov5_fold0/ --weights ../../models/yolo/yolov5x.pt
+
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_data/fold_0.xml --device 0,1,2,3 --project ../../models/yolov5_fold0/ --weights ../../models/yolo/yolov5x.pt
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_data/fold_1.xml --device 0,1,2,3 --project ../../models/yolov5_fold1/ --weights ../../models/yolo/yolov5x.pt
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_data/fold_2.xml --device 0,1,2,3 --project ../../models/yolov5_fold2/ --weights ../../models/yolo/yolov5x.pt
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_data/fold_3.xml --device 0,1,2,3 --project ../../models/yolov5_fold3/ --weights ../../models/yolo/yolov5x.pt
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_data/fold_4.xml --device 0,1,2,3 --project ../../models/yolov5_fold4/ --weights ../../models/yolo/yolov5x.pt
+
+
+python detect.py --weights ../../models/yolov5_fold0/exp8/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold0/ --project ../../models/yolov5_fold0/ --name valid
+python detect.py --weights ../../models/yolov5_fold0/exp8/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold0/ --name test_iou_0.25
+
+python detect.py --weights ../../models/yolov5_fold1/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold1/ --project ../../models/yolov5_fold1/ --name valid_iou_0.25_0.1
+python detect.py --weights ../../models/yolov5_fold1/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold1/ --name test_iou_0.25_0.1
+
+python detect.py --weights ../../models/yolov5_fold2/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold2/ --project ../../models/yolov5_fold2/ --name valid_iou_0.25_0.01
+python detect.py --weights ../../models/yolov5_fold2/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold2/ --name test_iou_0.25_0.01
+
+python detect.py --weights ../../models/yolov5_fold3/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold3/ --project ../../models/yolov5_fold3/ --name valid_iou_0.25_0.01
+python detect.py --weights ../../models/yolov5_fold3/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold3/ --name test_iou_0.25_0.01
+
+python detect.py --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold4/ --project ../../models/yolov5_fold4/ --name valid_iou_0.25_0.01
+python detect.py --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold4/ --name test_iou_0.25_0.01
+
+python tst.py --task val --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --data ../../modified_data/yolo5_data/fold_4.xml --project ../../models/yolov5_fold4/ --name valid_iou_0.25_0.01_v2
+python tst.py --task val --augment --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0,1,2,3 --img-size 1280 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --data ../../modified_data/yolo5_data/fold_4.xml --project ../../models/yolov5_fold4/ --name valid_iou_0.25_0.01_tta
+python tst.py --task val --augment --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0,1,2,3 --img-size 832 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --data ../../modified_data/yolo5_data_full/fold_4.xml --project ../../models/yolov5_fold4/ --name valid_iou_0.25_0.01_tta_832
+
+python train.py --img 1280 --batch 8 --epochs 80 --data ../../modified_data/yolo5_data_full/fold_0.xml --device 0,1,2,3 --project ../../models/yolov5_1280_fold0/ --weights ../../models/yolov5_fold0/copy/best_fold_0_mAP_0.383_0.184.pt
+
+python train.py --img 640 --batch 40 --epochs 80 --data ../../modified_data/yolo5_filter_1_data/fold_0.xml --device 0,1,2,3 --project ../../models/yolov5_filter_1_fold0/ --weights ../../models/yolov5_fold0/copy/best_fold_0_mAP_0.383_0.184.pt
+python tst.py --task val --weights ../../models/yolov5_filter_1_fold0/exp2/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --data ../../modified_data/yolo5_filter_1_data/fold_0.xml --project ../../models/yolov5_filter_1_fold0/ --name valid_iou_0.25_0.01
+python detect.py --weights ../../models/yolov5_filter_1_fold0/exp2/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_filter_1_fold0/ --name test_iou_0.25_0.01
+
+python detect_mirror.py --weights ../../models/yolov5_fold0/exp8/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold0/ --project ../../models/yolov5_fold0/ --name valid_iou_0.25_0.01_mirror
+python detect_mirror.py --weights ../../models/yolov5_fold0/exp8/weights/best.pt --device 0,1,2,3 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold0/ --name test_iou_0.25_0.01_mirror
+
+python detect_mirror.py --weights ../../models/yolov5_fold1/exp/weights/best.pt --device 0 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold1/ --project ../../models/yolov5_fold1/ --name valid_iou_0.25_0.01_mirror
+python detect_mirror.py --weights ../../models/yolov5_fold1/exp/weights/best.pt --device 0 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold1/ --name test_iou_0.25_0.01_mirror
+
+python detect_mirror.py --weights ../../models/yolov5_fold2/exp/weights/best.pt --device 0 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold2/ --project ../../models/yolov5_fold2/ --name valid_iou_0.25_0.01_mirror
+python detect_mirror.py --weights ../../models/yolov5_fold2/exp/weights/best.pt --device 1 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold2/ --name test_iou_0.25_0.01_mirror
+
+python detect_mirror.py --weights ../../models/yolov5_fold3/exp/weights/best.pt --device 0 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold3/ --project ../../models/yolov5_fold3/ --name valid_iou_0.25_0.01_mirror
+python detect_mirror.py --weights ../../models/yolov5_fold3/exp/weights/best.pt --device 1 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold3/ --name test_iou_0.25_0.01_mirror
+
+python detect_mirror.py --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 0 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/train_fold4/ --project ../../models/yolov5_fold4/ --name valid_iou_0.25_0.01_mirror
+python detect_mirror.py --weights ../../models/yolov5_fold4/exp/weights/best.pt --device 1 --img-size 640 --save-txt --save-conf --conf-thres 0.01 --iou-thres 0.25 --source ../../input/yolo/images/test/ --project ../../models/yolov5_fold4/ --name test_iou_0.25_0.01_mirror

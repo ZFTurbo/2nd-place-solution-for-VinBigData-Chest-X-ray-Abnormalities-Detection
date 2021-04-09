@@ -1,0 +1,11 @@
+numpy
+pandas
+scikit-learn
+map-boxes
+ensemble-boxes
+tensorflow-gpu==1.15.3
+keras==2.3.1
+keras-resnet==0.1.0
+keras-retinanet==0.5.1
+pydicom
+albumentations
