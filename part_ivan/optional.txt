@@ -1,0 +1,6 @@
+albumentations>=0.3.2
+cityscapesscripts==2.2.0
+imagecorruptions==1.1.2
+mmlvis==10.5.3
+scipy==1.5.4
+sklearn==0.24.1
