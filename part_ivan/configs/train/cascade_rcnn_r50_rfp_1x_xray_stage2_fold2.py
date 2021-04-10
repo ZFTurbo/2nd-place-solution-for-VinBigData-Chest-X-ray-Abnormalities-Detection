@@ -183,6 +183,8 @@ lr_config = dict(
     warmup_ratio=0.001,
     min_lr=0.0)
 
+evaluation = dict(interval=1, metric='bbox', save_best='bbox_mAP_50')
+
 total_epochs = 10
 runner = dict(max_epochs = 10)
 
