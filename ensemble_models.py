@@ -145,7 +145,9 @@ def concat_lists(class_boxes1, class_scores1, class_labels1,  class_boxes2, clas
 
 result_boxes, result_scores, result_labels = merge_boxes_from_models(0.4)
 
-bin_class_df = pd.read_csv('2-cls test pred.csv')
+# This classifier is taken from the public notebook.
+# https://www.kaggle.com/awsaf49/vinbigdata-2class-prediction
+bin_class_df = pd.read_csv('./subm_folder/2-cls test pred.csv')
 
 class14_boxes = []
 class14_scores = []
