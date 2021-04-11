@@ -19,7 +19,7 @@ of boxes (there are 248 images, after tripling they become 248 \* 3 =
 (namely, 6893 images). The learning rate was decreased from default 0.01
 to 0.0005. Training was done using the same 5 folds as in Stage 1,
 starting from weights obtained at the previous stage. Inference is the
-same as at Stage 1.
+same as at Stage 1. 
 
 ```
 ./download_train_data.sh
@@ -39,7 +39,14 @@ cp ./runs/train/exp5/weights/best.pt ./weights/stage2_fold4.pt
 ```
 
 Files “best.pt“ from folders “runs\\train\\exp\\weights”,
-“runs\\train\\exp2\\weights” etc should be copied to “weights” folder.
+“runs\\train\\exp2\\weights” etc should be copied to “weights” folder. 
+The checkpoint was chosen by the modified "fitness" function:
+```
+def fitness(x):
+    # Model fitness as a weighted combination of metrics
+    w = [0.0, 0.0, 0.9, 0.1]  # weights for [P, R, mAP@0.5, mAP@0.5:0.95]
+    return (x[:, :4] * w).sum(1)
+```
 
 **Yolo v5 inference**
 
