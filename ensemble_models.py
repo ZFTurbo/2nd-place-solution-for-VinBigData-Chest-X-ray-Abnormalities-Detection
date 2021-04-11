@@ -4,12 +4,12 @@ import pandas as pd
 from ensemble_boxes import *
 
 test_files = [
-'../Models/model13_all_folds_postprocessed_lb_264.csv',
-'../Models/retinannet_resnet101_sqr_removed_radiologists_all_folds_lb_0.231_test_fix_v3_lb_267.csv',
-'../Models/Others_2/cascade_r50_rare_5folds_1024_postprocess_lb_246.csv',
-'../Models/0.300/ensemble_retinanet_resnet101_5_iou_0.4_skip_0.01_lb_0.246_test.csv',
-'../Models/0.300/ensemble_yolo_2_iou_0.4_mAP_-1.0000_lb_0.251_test.csv',
-'../OOF/oof_files_ivan_10_models/cascade_r50_augs_with_empty/cascade_r50_augs_with_empty_5folds_1024_no_postprocess.csv'
+'./subm_folder/yolo_stage2_all_folds.csv',
+'./subm_folder/ensemble_retinanet_resnet101_removed_rad.csv',
+'./subm_folder/cascade_r50_rare_5folds_1024_postprocess_lb_246.csv',
+'./subm_folder/ensemble_retinanet_resnet101_sqr.csv',
+'./subm_folder/ensemble_yolo_final.csv',
+'./subm_folder/cascade_r50_augs_with_empty_5folds_1024_no_postprocess.csv'
             ]
 print('# models', len(test_files))
 

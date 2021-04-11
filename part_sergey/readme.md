@@ -61,6 +61,7 @@ To run inference on the test set for stage2 (stage 1 was done in another script)
 ```
 ./download_test_data.sh
 python3 yolo_inf.py --stage 2
+cp ./yolo_stage2_all_folds.csv ../subm_folder/yolo_stage2_all_folds.csv
 ```
 
 After that it’s needed to run postprocessing:
