@@ -4,13 +4,13 @@ import pandas as pd
 from ensemble_boxes import *
 
 test_files = [
-'./subm_folder/yolo_stage2_all_folds.csv',
-'./subm_folder/ensemble_retinanet_resnet101_removed_rad.csv',
-'./subm_folder/cascade_r50_rare_5folds_1024_postprocess_lb_246.csv',
-'./subm_folder/ensemble_retinanet_resnet101_sqr.csv',
-'./subm_folder/ensemble_yolo_final.csv',
-'./subm_folder/cascade_r50_augs_with_empty_5folds_1024_no_postprocess.csv'
-            ]
+    './subm_folder/yolo_stage2_all_folds.csv',
+    './subm_folder/ensemble_retinanet_resnet101_removed_rad.csv',
+    './subm_folder/cascade_r50_rare_5folds_1024_postprocess_lb_246.csv',
+    './subm_folder/ensemble_retinanet_resnet101_sqr.csv',
+    './subm_folder/ensemble_yolo_final.csv',
+    './subm_folder/cascade_r50_augs_with_empty_5folds_1024_no_postprocess.csv'
+]
 print('# models', len(test_files))
 
 blend_weights = None
@@ -104,6 +104,7 @@ def merge_boxes_from_models(intersection_thr):
 
     return result_boxes, result_scores, result_labels
 
+
 def format_prediction_string(boxes, scores, labels):
     pred_strings = []
     if len(boxes) > 0:
@@ -136,12 +137,14 @@ def write_submission(test_images_ids, result_boxes, result_scores, result_labels
     test_df = pd.DataFrame(results, columns=['image_id', 'PredictionString'])
     test_df.to_csv(submission_file_name, index=False)
 
+
 def concat_lists(class_boxes1, class_scores1, class_labels1,  class_boxes2, class_scores2, class_labels2):
     n_images = len(test_filenames)
     for ii in range(n_images):
         class_boxes1[ii] = np.concatenate((class_boxes1[ii], class_boxes2[ii]), axis=0)
         class_scores1[ii] = np.concatenate((class_scores1[ii], class_scores2[ii]), axis=0)
         class_labels1[ii] = np.concatenate((class_labels1[ii], class_labels2[ii]), axis=0)
+
 
 result_boxes, result_scores, result_labels = merge_boxes_from_models(0.4)
 
@@ -168,5 +171,3 @@ for test_filename in test_filenames:
 concat_lists(result_boxes, result_scores, result_labels, class14_boxes, class14_scores, class14_labels)
 
 write_submission(test_filenames, result_boxes, result_scores, result_labels, 0, 'submission_ensemble.csv')
-
-
