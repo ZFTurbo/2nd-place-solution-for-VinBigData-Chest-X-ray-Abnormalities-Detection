@@ -7,6 +7,8 @@ thoracic abnormalities from chest radiographs.
 Solution consists of 3 parts. Each part is models from each team member. Predictions of each part in the end ensembled in single 2nd place submission on LeaderBoard. 
 You can use only inference or train models from scratch.   
 
+Warning: since some of the data is hosted on Kaggle, in order to be able to download it, save your Kaggle API token to `.kaggle/kaggle.json`
+
 ## Only inference 
 
 ```
@@ -19,10 +21,9 @@ cd part_ivan
 sh ./setup.sh
 sh ./preproc.sh
 sh ./inference.sh
-...
 
 cd part_sergey
-...
+sh ./inference.sh
 
 sh ./final_ensemble.sh
 ```
@@ -41,10 +42,10 @@ sh ./setup.sh
 sh ./preproc_train.sh
 sh ./train.sh
 sh ./inference.sh
-...
 
 cd part_sergey
-...
+sh ./train.sh
+sh ./inference.sh
 
 sh ./final_ensemble.sh
 ```
