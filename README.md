@@ -14,16 +14,19 @@ cd part_zfturbo
 pip install -r requirements.txt
 sh ./preproc.sh
 sh ./inference.sh
+cd ..
 
 cd part_ivan
 sh ./setup.sh
 sh ./preproc.sh
 sh ./inference.sh
+cd ..
 
 cd part_sergey
 sh ./inference.sh
+cd ..
 
-sh ./final_ensemble.sh
+python3 ensemble_models.py
 ```
 
 ## Train
@@ -34,16 +37,19 @@ pip install -r requirements.txt
 sh ./preproc.sh
 sh ./train.sh
 sh ./inference.sh
+cd ..
 
 cd part_ivan
 sh ./setup.sh
 sh ./preproc_train.sh
 sh ./train.sh
 sh ./inference.sh
+cd ..
 
 cd part_sergey
 sh ./train.sh
 sh ./inference.sh
+cd ..
 
-sh ./final_ensemble.sh
+python3 ensemble_models.py
 ```
