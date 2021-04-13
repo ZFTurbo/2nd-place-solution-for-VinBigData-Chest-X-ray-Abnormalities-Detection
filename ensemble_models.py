@@ -6,10 +6,10 @@ from ensemble_boxes import *
 test_files = [
     './subm_folder/yolo_stage2_all_folds.csv',
     './subm_folder/ensemble_retinanet_resnet101_removed_rad.csv',
-    './subm_folder/cascade_r50_rare_5folds_1024_postprocess_lb_246.csv',
+    './subm_folder/cascade_r50_augs_rare_with_empty_5folds_1024_postprocess.csv',
     './subm_folder/ensemble_retinanet_resnet101_sqr.csv',
     './subm_folder/ensemble_yolo_final.csv',
-    './subm_folder/cascade_r50_augs_with_empty_5folds_1024_no_postprocess.csv'
+    './subm_folder/cascade_r50_augs_with_empty_5folds_1024_postprocess.csv'
 ]
 print('# models', len(test_files))
 
