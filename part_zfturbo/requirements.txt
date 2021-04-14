@@ -1,4 +1,6 @@
 numpy
+tqdm
+h5py<3.0.0
 pandas
 scikit-learn
 map-boxes
