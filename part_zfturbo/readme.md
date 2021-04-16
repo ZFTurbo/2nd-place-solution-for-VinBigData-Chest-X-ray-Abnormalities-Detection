@@ -2,6 +2,8 @@
 
 First you need to put [competition data](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/data) in `../input/` folder. It will require around 190 GB of space. Preprocessing and storage of models could require plus 200 GB of space. 
 
+Note that you need CUDA10 for this part of the solution to work. 
+
 `pip install -r requirements.txt`
 
 ## Inference 
