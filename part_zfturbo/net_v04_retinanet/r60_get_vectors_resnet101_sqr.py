@@ -133,8 +133,8 @@ if __name__ == '__main__':
         backbone = 'resnet101'
         out_path_prefix = OUTPUT_PATH + os.path.basename(model_path)[:-13]
         labels = get_classes_array()
-        valid_files = sorted(pd.read_csv(OUTPUT_PATH + 'retinanet_div_2/fold_{}_valid.csv'.format(fold))['id'].unique())
-        get_retinanet_preds_for_valid(valid_files, model_path, backbone, reverse, min_width, max_width, out_path_prefix, labels)
+        # valid_files = sorted(pd.read_csv(OUTPUT_PATH + 'retinanet_div_2/fold_{}_valid.csv'.format(fold))['id'].unique())
+        # get_retinanet_preds_for_valid(valid_files, model_path, backbone, reverse, min_width, max_width, out_path_prefix, labels)
         test_files = sorted(glob.glob(INPUT_PATH + 'test_png_div_2/*.png'))
         get_retinanet_preds_for_tst(test_files, model_path, backbone, reverse, min_width, max_width, out_path_prefix, labels)
 

@@ -105,7 +105,7 @@ if __name__ == '__main__':
     for fold_num in range(5):
         input_dir = OUTPUT_PATH + 'yolov5_fold{}/valid_iou_0.25_0.01/labels/'.format(fold_num)
         out_file = SUBM_PATH + 'yolov5_fold{}_iou_0.25_thr_0.01_train.csv'.format(fold_num)
-        convert_preds(fold_num, input_dir, out_file)
+        # convert_preds(fold_num, input_dir, out_file)
 
         input_dir = OUTPUT_PATH + 'yolov5_fold{}/test_iou_0.25_0.01/labels/'.format(fold_num)
         out_file = SUBM_PATH + 'yolov5_fold{}_iou_0.25_thr_0.01_test.csv'.format(fold_num)
@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
         input_dir = OUTPUT_PATH + 'yolov5_fold{}/valid_iou_0.25_0.01_mirror/labels/'.format(fold_num)
         out_file = SUBM_PATH + 'yolov5_fold{}_iou_0.25_thr_0.01_mirror_train.csv'.format(fold_num)
-        convert_preds(fold_num, input_dir, out_file)
+        # convert_preds(fold_num, input_dir, out_file)
 
         input_dir = OUTPUT_PATH + 'yolov5_fold{}/test_iou_0.25_0.01_mirror/labels/'.format(fold_num)
         out_file = SUBM_PATH + 'yolov5_fold{}_iou_0.25_thr_0.01_mirror_test.csv'.format(fold_num)
