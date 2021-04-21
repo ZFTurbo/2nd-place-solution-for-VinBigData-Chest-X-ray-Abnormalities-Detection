@@ -313,10 +313,10 @@ if __name__ == '__main__':
     is_TTA = True
     folder = f'{CUR_PATH}data/test/'
     imagenames = os.listdir(folder)
+    imagenames.sort() # for pretty output
     # For debugging
     # imagenames = imagenames[:10]
     image_ids = [x[:-4] for x in imagenames]
-    image_ids.sort()
     print('images', len(image_ids))
 
     all_folds_boxes = []
